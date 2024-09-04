@@ -11,10 +11,19 @@ No installation is needed, just download the .gh file and have fun.
 The algorithm requires:
 - a template (S) give as a triangular mesh;
 - a target (T) surface given as a mesh, a point cloud or a brep;
-- the optional landmarks (L) given as two separate lists of points;
+- the optional landmarks (L) given as two separate lists, one containing the indexes of verteces of the template and the other containing the corresponding points coordinates to aim at;
 - a bunch of numerical parameters that will be explained later.
 
 The point cloud can be referred using the new native Point Cloud block or constructed with the Point Cloud Attributes block. Nor Volvox nor Cockroach point clouds can be directly used and must be converted. 
+Landmarks can be defined in several ways and in the grasshopper definition some alternatives are given.
 
+The algorithm returns:
+- the aligned template mesh;
+- the transformation matrix of each point as a 4x4 rhino affine transformations 
+- the displacement field.
+- debug.
 
+Some post processing is provided to better understand what's happened.
+
+Due to the current limitations of Python in Grasshopper, and the unavailability of the console while a script is running, some debug information are printed to a file (StatusDebug.txt) to monitor the registration. I assure that this is really handy for long registrations.
 
