@@ -2,7 +2,7 @@
 
 This is a rough implementation of the Optimal Step Nonrigid ICP Algorithms  ([Amberg et al., 2007](https://doi.org/10.1109/CVPR.2007.383165)) for Rhino 8.
 
-This implementation relies on CPython recently added in Grasshopper and uses only standard libraries like numpy and scipy, as well as rhinoscriptsyntax and Rhino. To achieve this, the solver used in this implementation is scipy.sparse.linalg.lsmr that, to be used, required the row-major flattening of the 4n x 3 unknown matrix X to express it into a 12n x 1 vector. 
+This implementation relies on CPython recently added in Grasshopper and uses only standard libraries like numpy and scipy, as well as RhinoCommon API. To achieve this, the solver used in this implementation is scipy.sparse.linalg.lsmr that, to be used, required the row-major flattening of the 4n x 3 unknown matrix X to express it into a 12n x 1 vector. 
 
 # Installation
 No installation is needed, just download the .gh file and have fun.
@@ -26,4 +26,7 @@ The algorithm returns:
 Some post processing is provided to better understand what's happened.
 
 Due to the current limitations of Python in Grasshopper, and the unavailability of the console while a script is running, some debug information are printed to a file (StatusDebug.txt) to monitor the registration. I assure that this is really handy for long registrations.
+
+# Various
+I've also added the .py file that's inside the .gh file so that it can be used by non Rhino users. To implement the code I used RhinoCommon but open3d can be used to deal with the meshed and sklearn can be used to find the nearest neighbors between S(X) and T
 
