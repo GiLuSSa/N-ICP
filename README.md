@@ -19,7 +19,6 @@ Landmarks can be defined in several ways and in the grasshopper definition some 
 
 The algorithm returns:
 - the aligned template mesh;
-- the transformation matrix of each point as a 4x4 rhino affine transformations 
 - the displacement field.
 - debug.
 
