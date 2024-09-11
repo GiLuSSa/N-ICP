@@ -19,7 +19,7 @@ The algorithm requires:
   - *maxAlpha* - maximum (and first) value for alpha; minAlpha, ninimum (and last) value of alpha;
   - *iterations* - number of values of alpha to iterate in the main loop;
   - *maxSubIterations* - maximum number of iterations of the inner loop;
-  - *epsilon* - is used to break the sub-iteration before the maximum number of iterations if *epsilon < ||X<sub>n</sub> - X<sub>n-1</sub>||*.
+  - *epsilon* - is used to break the sub-iteration before the maximum number of iterations if *epsilon > ||X<sub>n</sub> - X<sub>n-1</sub>||* so if two subsequent transformation are similar enought.
 
 The point cloud can be referred using the new (Rhino 8) native Point Cloud block or constructed with the Point Cloud Attributes block. Nor Volvox nor Cockroach point clouds can be directly used and must be converted. 
 Landmarks can be defined in several ways and in the grasshopper definitions some alternatives are given.
