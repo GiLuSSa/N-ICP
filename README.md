@@ -13,7 +13,13 @@ The algorithm requires:
 - a template (S) given as a triangular mesh;
 - a target (T) surface given as a mesh, a point cloud or a brep;
 - the landmarks (L) given as two separate lists, one containing the indices of vertices of the template and the other containing the corresponding point coordinates to aim at;
-- a bunch of numerical parameters: Gamma, can be used to weight differently the rotational and the skew part of the deformation against the translation part; Threshhold, the maximum distance between a vertex of S and T to include that vertex in the distance term; maxAlpha, maximum (and first) value for alpha; minAlpha, ninimum (and last) value of alpha; iterations, number of values of alpha to iterate in the main loop; maxSubIterations, maximum number of iterations of the inner loop; epsilon, is used to break the sub-iteration before the maximum number of iterations if *epsilon < ||X<sub>n</sub> - X<sub>n-1</sub>||*.
+- a bunch of numerical parameters:
+  - *Gamma* - can be used to weight differently the rotational and the skew part of the deformation against the translation part;
+  - *Threshhold* - the maximum distance between a vertex of S and T to include that vertex in the distance term;
+  - *maxAlpha* - maximum (and first) value for alpha; minAlpha, ninimum (and last) value of alpha;
+  - *iterations* - number of values of alpha to iterate in the main loop;
+  - *maxSubIterations* - maximum number of iterations of the inner loop;
+  - *epsilon* - is used to break the sub-iteration before the maximum number of iterations if *epsilon < ||X<sub>n</sub> - X<sub>n-1</sub>||*.
 
 The point cloud can be referred using the new (Rhino 8) native Point Cloud block or constructed with the Point Cloud Attributes block. Nor Volvox nor Cockroach point clouds can be directly used and must be converted. 
 Landmarks can be defined in several ways and in the grasshopper definitions some alternatives are given.
