@@ -2,7 +2,7 @@
 
 This is a rough implementation of the Optimal Step Nonrigid ICP Algorithms  ([Amberg et al., 2007](https://doi.org/10.1109/CVPR.2007.383165)) for Rhino 8.
 
-This implementation relies on CPython added in Grasshopper in Rhino 8 and uses only standard libraries like NumPy and SciPy, as well as Rhino Common API. To achieve this, the solver used in this implementation is scipy.sparse.linalg.lsmr that, to be used, required the row-major flattening of the 4n x 3 unknown matrix X to express it into a 12n x 1 vector. 
+This implementation relies on CPython added in Grasshopper in Rhino 8 and uses only standard libraries like NumPy and SciPy, as well as Rhino Common API. To achieve this, the solver used in this implementation is scipy.sparse.linalg.lsmr that, to be used, required the row-major flattening of the 4n x 3 unknown matrix X to express it into a 12n x 1 vector. Matrix A and vector B were adjusted accordingly. 
 My code is not really pythonic, I'm sorry for that.
 
 # Installation
@@ -13,7 +13,7 @@ The algorithm requires:
 - a template (S) given as a triangular mesh;
 - a target (T) surface given as a mesh, a point cloud or a brep;
 - the landmarks (L) given as two separate lists, one containing the indexes of vertices of the template and the other containing the corresponding points coordinates to aim at;
-- a bunch of numerical parameters that will be explained later.
+- a bunch of numerical parameters: Gamma, can be used to weight differently the rotational and the skew part of the deformation against the translation part; Threshhold, the maximum distance between a vertex of S and T to include that vertex in the distance term; maxAlpha, maximum (and first) value for alpha; minAlpha, ninimum (and last) value of alpha; iterations, number of values of alpha to iterate in the main loop; maxSubIterations, maximum number of iterations of the inner loop; epsilon, is used to break the sub iteration before the maximum number of iteration if *epsilon < ||X<sub>n</sub> - X<sub>n-1</sub>||*.
 
 The point cloud can be referred using the new (Rhino 8) native Point Cloud block or constructed with the Point Cloud Attributes block. Nor Volvox nor Cockroach point clouds can be directly used and must be converted. 
 Landmarks can be defined in several ways and in the grasshopper definitions some alternatives are given.
